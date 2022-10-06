@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "lib",
+    "node_modules/vue-pronto/lib/**/*.js"
+  ],
+  "exclude": [
+    "tests",
+    "bin"
+  ]
+}

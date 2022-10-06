@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - v12
+  - v10
+before_install:
+    - npm install -g npm
+    - npm install -g codecov
+    - npm install -g greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
+after_success:  npm run coverage
+deploy:
+  - provider: npm
+    skip_cleanup: true
+    email: daniel@cherubini.casa
+    api_key:
+      secure: Y08o4ZXr3Mtbz23GmaXzYX6BsGIzUwBC2kGXcjokYndyKv1aEy9buelfKKkthP9/e2iIgMTJ0nRpQU1eEa7nt8i6TruFfWO3Xg7smt5/Vy3AmUFWn/DSa6pZOp9yovPAgeokU2kkwpFA/3P91yLB4P8ANwlXy5NxCGiOxAaf9ueNe3UmFuMKdCQeGcjZllsPcNkgfemTzFPN1TpgBCzQnSYP8uLrtK6uE3EG7ZayOJr2Q122OKvsixLwihMGeRs34xaueo5IStWvJlWIs7LlAteqCIhcpciV4VbQ8YC4fWRFlnrL7xmKLpMS20N+IqO64Z7CzK0qO3c4UGFE447oHyx3mI1uqwJZlfIJjUk3+ERqniaf740aSnSh+ypjKViQG6CstfGUMz90IEQbgagjAioPBG6Fg8rHKXOj7jEZcOU3riSM4iTBBNTXhLG6mR2YBxhnprFmLQfyHUyDEaOjTCQ4/bIj4IURm1G42xDgPYf8jAoR8rYzWpPsHmPhcqUXS2YB6gxMn5neymDkCnZAxofE07j48QMpW/2hmpv86DaVY36HXs0O0h0/IjpnMAvkg9me1kHDKaB6jlZikcTEEjhNaCpnFPcQMLofAejUjDVyIc3LxqjQyQ3A33Fis7x8UnXjjXMxczTTzOspqvQKdW6ety+aoVrxAHk5sP1V/EI=
+    on:
+      all_branches: true
+      tags: true
+      repo: express-vue/express-vue
+addons:
+    code_climate:
+        repo_token: 308db9eefcafd79785ed545433e7930a43b926b5bdea95014274a4b7ffe4b06b
